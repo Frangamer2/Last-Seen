@@ -9,6 +9,10 @@ public class GestorPistas : MonoBehaviour
     public Transform contenedorPistas;
     public GameObject textoPistaPrefab;
 
+    [Header("Caso")]
+    public int pistasNecesarias = 5;
+    public GameObject mensajeCasoCompleto;
+
     private List<string> pistasEncontradas = new List<string>();
 
     public void AgregarPista(string pista)
@@ -22,6 +26,19 @@ public class GestorPistas : MonoBehaviour
 
         TMP_Text texto = nuevaPista.GetComponent<TMP_Text>();
         texto.text = "• " + pista;
+
+        if (pistasEncontradas.Count >= pistasNecesarias)
+        {
+            CasoCompletado();
+        }
+    }
+
+    private void CasoCompletado()
+    {
+        if (mensajeCasoCompleto != null)
+        {
+            mensajeCasoCompleto.SetActive(true);
+        }
     }
 
     public void MostrarPistas()
