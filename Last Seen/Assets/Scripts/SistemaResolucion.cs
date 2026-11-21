@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SistemaResolucion : MonoBehaviour
 {
@@ -56,8 +57,6 @@ public class SistemaResolucion : MonoBehaviour
 
     public void Terminar()
     {
-        Application.Quit();
-
-        Debug.Log("Investigación terminada.");
+        SceneManager.LoadScene("MenuPrincipal");
     }
 }
